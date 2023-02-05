@@ -1,0 +1,115 @@
+---
+# general
+title: "Title"
+subtitle: "Subtitle"
+author: "Luis Kress"
+affiliation: Fachbereich Bioinformatik, Universität Frankfurt
+#mail: luis.kress@stud.uni-frankfurt.de
+date: "2023-02-24"
+output:
+  bookdown::pdf_document2:
+    template: eisvogel
+    keep_tex: true
+    extra_dependencies: ["float", "graphicx"]
+# eisvogel variables (see eisvogel github readme)
+titlepage: true
+titlepage-color: "b9d6c7"
+titlepage-text-color: "003233"
+titlepage-rule-color: "dd8629"
+titlepage-logo: images/goethe.png
+#titlepage-background: to have a background image for the titlepage
+toc-own-page: true
+code-block-font-size: \scriptsize
+# references
+link-citations: yes
+bibliography: citation/example_ref.bib
+csl: citation/apa.csl
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
+```
+
+# Abbreviations {-}
+
+```{r, echo=FALSE}
+tibble(
+  Abbreviation = c("Gpb", "BUSCO"),
+  Term = c("Giga base pairs", "Benchmark universal single copy ortholog")) %>%
+  arrange(Abbreviation) %>% # alphabetical order by abb
+  knitr::kable(booktab = T) # gives a pretty APA-ish table
+```
+
+\newpage
+
+# Introduction
+
+```{r goethe, echo=FALSE, out.width="60%", fig.cap="Test image", fig.align = 'center'}
+knitr::include_graphics("images/goethe.png")
+```
+
+**BOLD text**
+
+* List element 1
+* List element 2
+* List element 3
+
+Intext mathematical expressions: $\frac{ng}{\mu L}$.
+
+Equation that can be cross referenced (\@ref(eq:hetero))
+
+\begin{equation} 
+  He = 4 * Ne * u
+  (\#eq:hetero)
+\end{equation} 
+
+# Material & Methods
+
+Code block:
+
+```{bash, eval=FALSE}
+/opt/software/guppy/guppy-3.2.4/bin/guppy_basecaller \
+  -i <input_data_directory> -s <output_data> \
+  -c dna_r9.4.1_450bps_hac.cfg
+```
+
+Code block without syntax highlighting:
+
+```{verbatim}
+@SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65
+```
+
+Reference chapter \@ref(introduction).
+
+Reference image \@ref(fig:goethe)
+
+Citation: [@ruanFastAccurateLongread2020]
+
+```{r table, echo=FALSE}
+knitr::kable(
+  tibble(x = 1:5, y = 1, z = x ^ 2 + y), 
+  booktabs = TRUE,
+  caption = 'Test table.'
+)
+```
+
+# Results
+
+# Discussion
+
+\newpage
+
+# References {-}
+
+<div id="refs"></div>
+
+\newpage
+
+\listoffigures
+\listoftables
