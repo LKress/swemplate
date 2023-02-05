@@ -1,4 +1,4 @@
-# swtemplate
+# swemplate
 
 RMarkdown template for my scientific writing projects.
 
