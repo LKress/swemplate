@@ -10,7 +10,7 @@ output:
   bookdown::pdf_document2:
     template: eisvogel
     keep_tex: true
-    extra_dependencies: ["float", "graphicx"]
+    extra_dependencies: ["float"]
 # eisvogel variables (see eisvogel github readme)
 titlepage: true
 titlepage-color: "b9d6c7"
@@ -30,6 +30,7 @@ csl: citation/apa.csl
 library(dplyr)
 library(ggplot2)
 knitr::opts_chunk$set(echo = TRUE)
+# to prevent figures from floating
 knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
 ```
 
