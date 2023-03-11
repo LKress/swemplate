@@ -30,8 +30,8 @@ csl: citation/apa.csl
 library(dplyr)
 library(ggplot2)
 knitr::opts_chunk$set(echo = TRUE)
-# to prevent figures from floating
-knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
+# to prevent figures from floating and center all figures
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "", fig.align = 'center')
 ```
 
 # Abbreviations {-}
@@ -48,7 +48,7 @@ tibble(
 
 # Introduction
 
-```{r goethe, echo=FALSE, out.width="60%", fig.cap="Test image", fig.align = 'center'}
+```{r goethe, echo=FALSE, out.width="60%", fig.cap="Test image"}
 knitr::include_graphics("images/goethe.png")
 ```
 
